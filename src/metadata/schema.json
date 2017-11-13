@@ -1,0 +1,238 @@
+{
+    "package": "ApiLeap",
+    "tagline": "ApiLeap API",
+    "description": "ApiLeap is an easy to use API that can capture near pixel perfect screenshots of web pages. It relies on the Chrome rendering engine to ensure fast and accurate rendering. As a result, modern HTML, CSS, and JS features are fully supported.",
+    "image": "https:\/\/logo.clearbit.com\/apileap.com",
+    "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-ApiLeap-Package",
+    "keywords": [
+        "API",
+        "screenshots",
+        "web",
+        "html",
+        "css",
+        "js"
+    ],
+    "accounts": {
+        "domain": "https:\/\/apileap.com",
+        "credentials": [
+            "accessKey"
+        ]
+    },
+    "steps": [
+        "Sign in https:\/\/apileap.com",
+        "Navigate to Dashboard -> Access Key",
+        "Copy Your Access Key"
+    ],
+    "blocks": [
+        {
+            "name": "getImageFromUrl",
+            "description": "Get snapshot of the specified url",
+            "args": [
+                {
+                    "name": "accessKey",
+                    "type": "credentials",
+                    "info": "Your personal access key to use the API.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "access_key"
+                    }
+                },
+                {
+                    "name": "url",
+                    "type": "String",
+                    "info": "The URL of the website you want to request a snapshot from.",
+                    "required": true
+                },
+                {
+                    "name": "ttl",
+                    "type": "Number",
+                    "info": "The number of seconds the screenshot should be kept in cache. When a screenshot is served from cache, the API call doesn't count in your monthly credit.",
+                    "required": false
+                },
+                {
+                    "name": "fresh",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Return a fresh new screenshot instead of the eventually cached one.",
+                    "required": false
+                },
+                {
+                    "name": "fullPage",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Set this to true if you want to capture the full height of the target website.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "full_page"
+                    }
+                },
+                {
+                    "name": "width",
+                    "type": "Number",
+                    "info": "Width of the viewport to use.",
+                    "required": false
+                },
+                {
+                    "name": "height",
+                    "type": "Number",
+                    "info": "Height of the viewport to use. This will be ignored if fullPage is set to true.",
+                    "required": false
+                },
+                {
+                    "name": "delay",
+                    "type": "Number",
+                    "info": "Delay, after the pageload event is fired, to wait before taking the screenshot. From 0 to 10 seconds. Most websites are fully loaded after the pageload event so this parameter is not needed most of the time.",
+                    "required": false
+                },
+                {
+                    "name": "format",
+                    "type": "Select",
+                    "options": [
+                        "jpeg",
+                        "png"
+                    ],
+                    "info": "The format of the returned screenshot. One of jpeg and png.",
+                    "required": false
+                },
+                {
+                    "name": "css",
+                    "type": "String",
+                    "info": "An additional CSS string to be injected into the page before capturing.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/apileap.com\/api\/screenshot\/v1\/urltoimage",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "query",
+                        "parameters": [
+                            "access_key",
+                            "url",
+                            "ttl",
+                            "fresh",
+                            "full_page",
+                            "width",
+                            "height",
+                            "delay",
+                            "format",
+                            "css"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "getImageFromHtml",
+            "description": "Get snapshot of the specified html",
+            "args": [
+                {
+                    "name": "accessKey",
+                    "type": "credentials",
+                    "info": "Your personal access key to use the API.",
+                    "required": true,
+                    "vendorSchema": {
+                        "name": "access_key"
+                    }
+                },
+                {
+                    "name": "html",
+                    "type": "String",
+                    "info": "The HTML you want to make a snapshot of.",
+                    "required": true
+                },
+                {
+                    "name": "ttl",
+                    "type": "Number",
+                    "info": "The number of seconds the screenshot should be kept in cache. When a screenshot is served from cache, the API call doesn't count in your monthly credit.",
+                    "required": false
+                },
+                {
+                    "name": "fresh",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Return a fresh new screenshot instead of the eventually cached one.",
+                    "required": false
+                },
+                {
+                    "name": "fullPage",
+                    "type": "Select",
+                    "options": [
+                        "true",
+                        "false"
+                    ],
+                    "info": "Set this to true if you want to capture the full height of the target website.",
+                    "required": false,
+                    "vendorSchema": {
+                        "name": "full_page"
+                    }
+                },
+                {
+                    "name": "width",
+                    "type": "Number",
+                    "info": "Width of the viewport to use.",
+                    "required": false
+                },
+                {
+                    "name": "height",
+                    "type": "Number",
+                    "info": "Height of the viewport to use. This will be ignored if fullPage is set to true.",
+                    "required": false
+                },
+                {
+                    "name": "delay",
+                    "type": "Number",
+                    "info": "Delay, after the pageload event is fired, to wait before taking the screenshot. From 0 to 10 seconds. Most websites are fully loaded after the pageload event so this parameter is not needed most of the time.",
+                    "required": false
+                },
+                {
+                    "name": "format",
+                    "type": "Select",
+                    "options": [
+                        "jpeg",
+                        "png"
+                    ],
+                    "info": "The format of the returned screenshot. One of jpeg and png.",
+                    "required": false
+                },
+                {
+                    "name": "css",
+                    "type": "String",
+                    "info": "An additional CSS string to be injected into the page before capturing.",
+                    "required": false
+                }
+            ],
+            "vendorRequest": {
+                "url": "https:\/\/apileap.com\/api\/screenshot\/v1\/htmltoimage",
+                "method": "get",
+                "requestParameters": [
+                    {
+                        "type": "form_params",
+                        "parameters": [
+                            "access_key",
+                            "html",
+                            "ttl",
+                            "fresh",
+                            "full_page",
+                            "width",
+                            "height",
+                            "delay",
+                            "format",
+                            "css"
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}
