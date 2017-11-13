@@ -2,8 +2,8 @@
     "package": "ApiLeap",
     "tagline": "ApiLeap API",
     "description": "ApiLeap is an easy to use API that can capture near pixel perfect screenshots of web pages. It relies on the Chrome rendering engine to ensure fast and accurate rendering. As a result, modern HTML, CSS, and JS features are fully supported.",
-    "image": "https:\/\/logo.clearbit.com\/apileap.com",
-    "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-ApiLeap-Package",
+    "image": "https://logo.clearbit.com/apileap.com",
+    "repo": "https://github.com/RapidSoftwareSolutions/Marketplace-ApiLeap-Package",
     "keywords": [
         "API",
         "screenshots",
@@ -13,13 +13,13 @@
         "js"
     ],
     "accounts": {
-        "domain": "https:\/\/apileap.com",
+        "domain": "https://apileap.com",
         "credentials": [
             "accessKey"
         ]
     },
     "steps": [
-        "Sign in https:\/\/apileap.com",
+        "Sign in https://apileap.com",
         "Navigate to Dashboard -> Access Key",
         "Copy Your Access Key"
     ],
@@ -108,7 +108,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/apileap.com\/api\/screenshot\/v1\/urltoimage",
+                "url": "https://apileap.com/api/screenshot/v1/urltoimage",
                 "method": "get",
                 "requestParameters": [
                     {
@@ -213,7 +213,7 @@
                 }
             ],
             "vendorRequest": {
-                "url": "https:\/\/apileap.com\/api\/screenshot\/v1\/htmltoimage",
+                "url": "https://apileap.com/api/screenshot/v1/htmltoimage",
                 "method": "get",
                 "requestParameters": [
                     {
