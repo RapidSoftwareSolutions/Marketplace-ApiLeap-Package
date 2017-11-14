@@ -65,12 +65,12 @@ $app->post('/api/ApiLeap/getImageFromUrl', function ($request, $response) {
         } else {
             $result['callback'] = 'error';
             $result['contextWrites']['to']['status_code'] = 'API_ERROR';
-            $result['contextWrites']['to']['status_msg'] = is_array($responseBody) ? $responseBody : json_decode($responseBody);
+            $result['contextWrites']['to']['status_msg'] = is_array($responseBody->getContents()) ? $responseBody->getContents() : json_decode($responseBody->getContents());
         }
     } catch (\GuzzleHttp\Exception\BadResponseException $exception) {
         $result['callback'] = 'error';
         $result['contextWrites']['to']['status_code'] = 'API_ERROR';
-        $result['contextWrites']['to']['status_msg'] = json_decode($exception->getResponse()->getBody());
+        $result['contextWrites']['to']['status_msg'] = $exception->getResponse()->getBody()->getContents();
     }
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 });

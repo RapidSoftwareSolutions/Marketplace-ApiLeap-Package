@@ -69,7 +69,7 @@ $app->post('/api/ApiLeap/getImageFromHtml', function ($request, $response) {
     } catch (\GuzzleHttp\Exception\BadResponseException $exception) {
         $result['callback'] = 'error';
         $result['contextWrites']['to']['status_code'] = 'API_ERROR';
-        $result['contextWrites']['to']['status_msg'] = json_decode($exception->getResponse()->getBody());
+        $result['contextWrites']['to']['status_msg'] = $exception->getResponse()->getBody()->getContents();
     }
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 });
